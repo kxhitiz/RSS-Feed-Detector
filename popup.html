@@ -1,0 +1,31 @@
+<style>
+body { width: 300px; }
+</style>
+
+<script>
+	chrome.tabs.executeScript(null, 
+					{file:"content_script.js"});
+</script>
+
+
+<script>					
+  function onRequest(request, sender, sendResponse) {
+    var data=request.greeting;
+	
+	document.write(data);
+	
+    /*if (request.greeting == "hello")
+      sendResponse({farewell: "goodbye"});
+    else
+      sendResponse({}); // snub them.*/
+  };
+
+  // listening to content script msg
+chrome.extension.onRequest.addListener(onRequest);
+				
+</script>
+
+
+
+
+<h3> RSS Feed URL Detector </h3>
