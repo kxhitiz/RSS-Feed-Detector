@@ -1,8 +1,15 @@
 
 document.body.style.backgroundColor='red';
-//document.write("G");
-var link=document.links[1].href;
+var length=document.links.length;
 
-chrome.extension.sendRequest({'greeting': link}, function(response) {
+var link_stack = new Array();
+var i=0;
+for (i=0; i < length; i++)
+{
+	link_stack[i]=document.links[i].href;
+}
+
+
+chrome.extension.sendRequest({'weblinks': link_stack}, function(response) {
   console.log(response.farewell);
 })

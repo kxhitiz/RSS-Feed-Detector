@@ -10,11 +10,18 @@ body { width: 300px; }
 
 <script>					
   function onRequest(request, sender, sendResponse) {
-    var data=request.greeting;
+    var data=request.weblinks;
+	var len=data.length;
+	var i=0;
 	
-	document.write(data);
 	
-    /*if (request.greeting == "hello")
+	for (i=0;i<len;i++)
+	{
+		document.write(data[i]);
+		document.write("<br />");
+	}
+	
+	/*if (request.greeting == "hello")
       sendResponse({farewell: "goodbye"});
     else
       sendResponse({}); // snub them.*/
