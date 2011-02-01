@@ -10,6 +10,8 @@ for (i=0; i < length; i++)
 	var temp1= new Array();
 	temp1=temp.split(".");
 	var temp2;
+	
+	//determining the link type, whether xml or not
 	for (var j=0; j < temp1.length;j++)
 	{
 		temp2=temp1[j];
@@ -25,3 +27,4 @@ for (i=0; i < length; i++)
 chrome.extension.sendRequest({'weblinks': link_stack}, function(response) {
   console.log(response.farewell);
 })
+

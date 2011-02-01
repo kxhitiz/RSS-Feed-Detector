@@ -13,12 +13,15 @@ body { width: 300px; }
     var data=request.weblinks;
 	var len=data.length;
 	var i=0;
-	
+	if (len ==0)
+		document.getElementById("links").innerHTML= "No XML links were found in this Page";
+			
 	
 	for (i=0;i<len;i++)
 	{
-		document.write(data[i]);
-		document.write("<br />");
+		document.write(data[i]+ "<br />");
+		
+		
 	}
 	
 	/*if (request.greeting == "hello")
@@ -36,3 +39,4 @@ chrome.extension.onRequest.addListener(onRequest);
 
 
 <h3> RSS Feed URL Detector </h3>
+<div id="links"></div>
